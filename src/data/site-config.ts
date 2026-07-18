@@ -7,8 +7,8 @@ export const siteConfig = {
   author: "Bright Aggrey",
   company: "Activation Technology",
   location: "Accra, Ghana",
-  email: "hello@brightaggrey.com",
-  phone: "+233 XX XXX XXXX",
+  email: "briaggrey@gmail.com",
+  phone: "+233246373888",
   social: {
     github: "https://github.com/brightaggrey",
     linkedin: "https://linkedin.com/in/brightaggrey",
