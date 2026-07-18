@@ -12,8 +12,8 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative py-24 border-y border-border">
-      <div className="absolute inset-0 bg-gradient-to-b from-accent/3 to-transparent" />
+    <section className="relative py-24 border-y border-[var(--border-color)]">
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--glow)] to-transparent" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
@@ -26,7 +26,7 @@ export default function StatsSection() {
               className="text-center"
             >
               <AnimatedCounter target={stat.target} suffix={stat.suffix} />
-              <p className="mt-3 text-sm text-text-secondary font-medium">
+              <p className="mt-3 text-sm text-[var(--text-secondary)] font-medium">
                 {stat.label}
               </p>
             </motion.div>

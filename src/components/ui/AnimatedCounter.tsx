@@ -9,11 +9,7 @@ interface AnimatedCounterProps {
   duration?: number;
 }
 
-export default function AnimatedCounter({
-  target,
-  suffix = "",
-  duration = 2000,
-}: AnimatedCounterProps) {
+export default function AnimatedCounter({ target, suffix = "", duration = 2000 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const [inView, setInView] = useState(false);
@@ -33,29 +29,16 @@ export default function AnimatedCounter({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !inView) {
-          setInView(true);
-          startCounting();
-        }
-      },
-      { threshold: 0.5 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !inView) { setInView(true); startCounting(); }
+    }, { threshold: 0.5 });
     observer.observe(el);
     return () => observer.disconnect();
   }, [inView, startCounting]);
 
   return (
-    <motion.span
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-heading)] text-gradient"
-    >
-      {count}
-      {suffix}
+    <motion.span ref={ref} initial={{ opacity: 0, scale: 0.5 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.5 }} className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-heading)] text-gradient">
+      {count}{suffix}
     </motion.span>
   );
 }

@@ -30,10 +30,10 @@ export default function AnimatedButton({
 
   const variants = {
     primary:
-      "bg-accent text-white hover:bg-accent-light shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:shadow-[0_0_50px_rgba(59,130,246,0.5)]",
+      "bg-[var(--accent)] text-white hover:bg-[var(--accent-light)]",
     secondary:
-      "bg-white/5 text-text-primary border border-white/10 hover:bg-white/10 hover:border-accent/30",
-    ghost: "text-text-secondary hover:text-text-primary hover:bg-white/5",
+      "bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-color)] hover:border-[var(--border-hover)]",
+    ghost: "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--glow)]",
   };
 
   const sizes = {
@@ -60,10 +60,7 @@ export default function AnimatedButton({
 
   if (href) {
     return (
-      <motion.div
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
+      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
         <Link href={href} className={classes}>
           {content}
         </Link>

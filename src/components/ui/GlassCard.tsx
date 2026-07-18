@@ -20,15 +20,15 @@ export default function GlassCard({
       initial={{ opacity: 0, y: 20, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       whileHover={
         hover
           ? { y: -6, transition: { duration: 0.3, ease: "easeOut" } }
           : undefined
       }
-      className={`relative rounded-2xl bg-bg-card/60 backdrop-blur-xl border border-border overflow-hidden transition-all duration-500 ease-out ${
+      className={`relative rounded-2xl bg-[var(--bg-card)] backdrop-blur-xl border border-[var(--border-color)] overflow-hidden transition-all duration-500 ease-out ${
         hover
-          ? "hover:border-border-hover hover:shadow-[0_0_50px_rgba(59,130,246,0.1)]"
+          ? "hover:border-[var(--border-hover)] hover:shadow-[var(--card-shadow-hover)]"
           : ""
       } ${glow ? "glow-blue" : ""} ${className}`}
     >

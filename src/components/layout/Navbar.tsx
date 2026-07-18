@@ -23,7 +23,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -39,26 +39,24 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
-        scrolled
-          ? "glass-strong py-2"
-          : "bg-transparent py-4"
+        scrolled ? "glass-strong py-2" : "bg-transparent py-4"
       )}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="flex h-12 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 text-accent font-bold text-sm group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--glow)] border border-[var(--border-hover)] text-[var(--accent)] font-bold text-sm group-hover:bg-[var(--accent)] group-hover:text-white transition-all duration-300">
               BA
             </div>
-            <span className="hidden sm:block text-lg font-bold font-[family-name:var(--font-heading)] text-text-primary tracking-tight">
+            <span className="hidden sm:block text-lg font-bold font-[family-name:var(--font-heading)] text-[var(--text-primary)] tracking-tight">
               Bright Aggrey
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-1 bg-white/5 rounded-2xl border border-white/5 p-1">
+          <div className="hidden lg:flex items-center gap-1 chip rounded-2xl p-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -66,15 +64,15 @@ export default function Navbar() {
                 className={cn(
                   "relative px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-300",
                   pathname === link.href
-                    ? "text-accent bg-accent/10"
-                    : "text-text-secondary hover:text-text-primary hover:bg-white/5"
+                    ? "text-[var(--accent)] bg-[var(--glow)]"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 )}
               >
                 {link.label}
                 {pathname === link.href && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute inset-0 rounded-xl border border-accent/20"
+                    className="absolute inset-0 rounded-xl border border-[var(--border-hover)]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -85,14 +83,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors"
+              className="p-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               aria-label="Toggle theme"
             >
-              <Sun className="h-4 w-4" />
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-xl text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors"
+              className="lg:hidden p-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -107,8 +105,8 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden glass-strong border-t border-border overflow-hidden"
+            transition={{ duration: 0.3 }}
+            className="lg:hidden glass-strong border-t border-[var(--border-color)] overflow-hidden"
           >
             <div className="px-6 py-4 space-y-1">
               {navLinks.map((link) => (
@@ -118,8 +116,8 @@ export default function Navbar() {
                   className={cn(
                     "block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300",
                     pathname === link.href
-                      ? "text-accent bg-accent/10"
-                      : "text-text-secondary hover:text-text-primary hover:bg-white/5"
+                      ? "text-[var(--accent)] bg-[var(--glow)]"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                   )}
                 >
                   {link.label}
