@@ -6,7 +6,7 @@ const stats = [
   { label: "Years of ICT Experience", target: 8, suffix: "+" },
   { label: "Projects Completed", target: 50, suffix: "+" },
   { label: "Students Trained", target: 500, suffix: "+" },
-  { label: "Digital Products", target: 15, suffix: "+" },
+  { label: "Certifications Earned", target: 6, suffix: "" },
 ];
 
 export default function StatsSection() {

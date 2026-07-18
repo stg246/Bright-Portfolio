@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, ShoppingBag } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { cn } from "@/lib/utils";
 
@@ -16,7 +16,6 @@ const navLinks = [
   { href: "/experience", label: "Experience" },
   { href: "/projects", label: "Projects" },
   { href: "/certifications", label: "Certifications" },
-  { href: "/shop", label: "Shop" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -77,12 +76,6 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Link
-              href="/shop"
-              className="relative p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-            >
-              <ShoppingBag className="h-5 w-5" />
-            </Link>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"

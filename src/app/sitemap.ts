@@ -9,7 +9,6 @@ export default function sitemap() {
     "/experience",
     "/projects",
     "/certifications",
-    "/shop",
     "/contact",
   ];
 
@@ -17,6 +16,6 @@ export default function sitemap() {
     url: `${siteConfig.url}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "daily" : "weekly",
-    priority: route === "" ? 1 : route === "/shop" ? 0.9 : 0.8,
+    priority: route === "" ? 1 : 0.8,
   }));
 }

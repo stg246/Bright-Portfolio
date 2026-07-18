@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Briefcase, ShoppingBag } from "lucide-react";
+import { ArrowRight, Download, Briefcase } from "lucide-react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
@@ -43,8 +43,7 @@ export default function HeroSection() {
             className="text-lg sm:text-xl text-[var(--text-secondary)] mb-8 max-w-2xl"
           >
             I help businesses, schools, and individuals leverage technology
-            through software development, ICT solutions, training, and digital
-            products.
+            through software development, ICT solutions, and training.
           </motion.p>
 
           <motion.div
@@ -60,10 +59,6 @@ export default function HeroSection() {
             <Button href="/contact" variant="outline" size="lg">
               Hire Me
               <ArrowRight className="h-4 w-4" />
-            </Button>
-            <Button href="/shop" variant="secondary" size="lg">
-              <ShoppingBag className="h-4 w-4" />
-              Visit Shop
             </Button>
             <Button href="/Bright_Aggrey_CV.pdf" variant="ghost" size="lg">
               <Download className="h-4 w-4" />
