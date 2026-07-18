@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ParticleBackground from "@/components/ui/ParticleBackground";
 import "./globals.css";
 import { siteConfig } from "@/data/site-config";
 
@@ -52,14 +53,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
       <body className="font-sans antialiased">
         <ThemeProvider>
+          <ParticleBackground />
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main className="relative z-10 min-h-screen">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

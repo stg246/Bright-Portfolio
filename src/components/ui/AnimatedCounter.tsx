@@ -51,8 +51,8 @@ export default function AnimatedCounter({
       ref={ref}
       initial={{ opacity: 0, scale: 0.5 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5 }}
-      className="text-4xl sm:text-5xl font-bold text-gradient"
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-heading)] text-gradient"
     >
       {count}
       {suffix}

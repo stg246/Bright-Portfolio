@@ -1,13 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Code,
-  Server,
-  Palette,
-  GraduationCap,
-} from "lucide-react";
-import SectionHeader from "@/components/ui/SectionHeader";
+import { Code, Server, Palette, GraduationCap } from "lucide-react";
+import SectionTitle from "@/components/ui/SectionTitle";
+import GlassCard from "@/components/ui/GlassCard";
 import { skillCategories } from "@/data/skills";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -19,10 +15,10 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function SkillsClient() {
   return (
-    <div className="pt-24 pb-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          subtitle="Skills"
+    <div className="pt-32 pb-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <SectionTitle
+          label="Skills"
           title="Technical Expertise"
           description="A comprehensive overview of my skills across development, systems, design, and education."
         />
@@ -37,43 +33,45 @@ export default function SkillsClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-                className="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)]"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-electric-500/10 text-electric-400">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                    {category.name}
-                  </h3>
-                </div>
-
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name}>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm text-[var(--text-secondary)]">
-                          {skill.name}
-                        </span>
-                        <span className="text-xs text-[var(--text-muted)]">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="h-2 rounded-full bg-[var(--bg-secondary)]">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 1,
-                            delay: catIndex * 0.1 + skillIndex * 0.05,
-                          }}
-                          className="h-full rounded-full bg-gradient-to-r from-electric-500 to-emerald-400"
-                        />
-                      </div>
+                <GlassCard className="p-6" hover={false}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                      <Icon className="h-5 w-5" />
                     </div>
-                  ))}
-                </div>
+                    <h3 className="text-lg font-semibold font-[family-name:var(--font-heading)] text-text-primary">
+                      {category.name}
+                    </h3>
+                  </div>
+
+                  <div className="space-y-4">
+                    {category.skills.map((skill, skillIndex) => (
+                      <div key={skill.name}>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-sm text-text-secondary">
+                            {skill.name}
+                          </span>
+                          <span className="text-xs text-text-muted font-mono">
+                            {skill.level}%
+                          </span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{
+                              duration: 1.2,
+                              delay: catIndex * 0.1 + skillIndex * 0.05,
+                              ease: [0.25, 0.46, 0.45, 0.94],
+                            }}
+                            className="h-full rounded-full bg-gradient-to-r from-accent to-cyan"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </GlassCard>
               </motion.div>
             );
           })}
