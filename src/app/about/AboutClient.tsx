@@ -19,8 +19,8 @@ export default function AboutClient() {
         <SectionTitle label="About Me" title="About Bright" description="Passionate about technology and driven by innovation." />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }} className="flex justify-center lg:justify-start">
-            <div className="relative w-[170px] sm:w-[190px]">
+          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }} className="flex justify-center">
+            <div className="relative w-[213px] sm:w-[238px]">
               <div className="absolute -inset-4 bg-gradient-to-br from-[#d4a843]/20 to-[#b8941f]/10 rounded-3xl blur-2xl" />
               <div className="relative card-base rounded-2xl overflow-hidden gradient-border">
                 <img src="/images/profile.jpg" alt="Bright Aggrey" className="w-full h-auto object-cover" width={320} height={434} />
