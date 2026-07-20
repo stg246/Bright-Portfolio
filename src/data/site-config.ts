@@ -10,7 +10,7 @@ export const siteConfig = {
   email: "briaggrey@gmail.com",
   phone: "+233246373888",
   social: {
-    github: "https://github.com/brightaggrey",
+    github: "https://github.com/stg246",
     linkedin: "https://linkedin.com/in/brightaggrey",
     twitter: "https://twitter.com/brightaggrey",
   },
@@ -23,5 +23,38 @@ export const siteConfig = {
     "Ghana",
     "Web Development",
     "ICT Training",
+  ],
+  navLinks: [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Skills", href: "/skills" },
+    { label: "Experience", href: "/experience" },
+    { label: "Projects", href: "/projects" },
+    { label: "Certifications", href: "/certifications" },
+    { label: "Contact", href: "/contact" },
+  ],
+  stats: [
+    { value: 50, suffix: "+", label: "Projects Completed" },
+    { value: 30, suffix: "+", label: "Happy Clients" },
+    { value: 5, suffix: "+", label: "Years Experience" },
+    { value: 100, suffix: "+", label: "Students Trained" },
+  ],
+  about: {
+    title: "Passionate ICT Professional & Digital Innovator",
+    bio: "I'm Bright Aggrey, a dedicated ICT professional with a passion for leveraging technology to solve real-world problems. As the founder of Activation Technology, I've been at the forefront of delivering innovative digital solutions across Ghana. My expertise spans frontend development, systems engineering, graphic design, and ICT education. I believe in the transformative power of technology and am committed to empowering individuals and organizations through digital literacy and cutting-edge solutions.",
+    highlights: [
+      { label: "Years Experience", value: "5+", icon: "calendar" },
+      { label: "Certifications", value: "6+", icon: "award" },
+      { label: "Students Trained", value: "100+", icon: "users" },
+      { label: "Projects Delivered", value: "50+", icon: "code" },
+    ],
+  },
+  milestones: [
+    { year: "2019", title: "Started ICT Career", description: "Began professional career in ICT and digital services." },
+    { year: "2020", title: "Head of ICT Department", description: "Led the ICT department at Golden Child School, introducing coding programs." },
+    { year: "2021", title: "Founded Activation Technology", description: "Launched Activation Technology to provide comprehensive ICT solutions." },
+    { year: "2023", title: "ALX Software Engineering Graduate", description: "Completed the rigorous ALX Software Engineering program." },
+    { year: "2024", title: "Expanded Training Programs", description: "Scaled ICT training programs reaching over 100 students per semester." },
   ],
 };

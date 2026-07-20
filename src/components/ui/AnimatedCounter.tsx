@@ -37,7 +37,7 @@ export default function AnimatedCounter({ target, suffix = "", duration = 2000 }
   }, [inView, startCounting]);
 
   return (
-    <motion.span ref={ref} initial={{ opacity: 0, scale: 0.5 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.5 }} className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-heading)] text-gradient">
+    <motion.span ref={ref} initial={{ opacity: 0, scale: 0.5 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.5 }} className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-heading)] gradient-text">
       {count}{suffix}
     </motion.span>
   );

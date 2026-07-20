@@ -1,79 +1,74 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Heart, Rocket, Users } from "lucide-react";
+import { Calendar, Award, Users, Code } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import GlassCard from "@/components/ui/GlassCard";
-import AnimatedButton from "@/components/ui/AnimatedButton";
+import { siteConfig } from "@/data/site-config";
 
-const milestones = [
-  { year: "2018", title: "Started ICT Journey", description: "Began professional career in ICT, combining technical skills with a passion for education." },
-  { year: "2019", title: "Head of ICT Department", description: "Led the ICT department at Golden Child School, mentoring students and developing curricula." },
-  { year: "2021", title: "Founded Activation Technology", description: "Established Activation Technology to provide comprehensive ICT solutions and digital services." },
-  { year: "2023", title: "ALX Software Engineering", description: "Completed the ALX Software Engineering program, expanding full-stack development capabilities." },
-  { year: "2024", title: "Expanding Digital Services", description: "Expanding service offerings and building impactful technology solutions across Ghana." },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  calendar: <Calendar size={20} />,
+  award: <Award size={20} />,
+  users: <Users size={20} />,
+  code: <Code size={20} />,
+};
 
 export default function AboutClient() {
   return (
-    <div className="pt-32 pb-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <SectionTitle label="About Me" title="The Story Behind the Code" description="My journey in ICT, from curiosity to career, and building solutions that make a difference." />
+    <div className="pt-28 pb-20">
+      <section className="max-w-7xl mx-auto px-6">
+        <SectionTitle label="About Me" title="About Bright" description="Passionate about technology and driven by innovation." />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <GlassCard className="p-8 glow-blue" hover={false}>
-              <img src="/images/profile.jpg" alt="Bright Aggrey" className="w-32 h-32 rounded-2xl object-cover border-2 border-[var(--border-hover)] mb-6" />
-              <h3 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-[var(--text-primary)] mb-2">Bright Aggrey</h3>
-              <div className="flex items-center gap-4 mb-6 text-sm text-[var(--text-secondary)]">
-                <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-[var(--accent)]" />Accra, Ghana</span>
-                <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-[var(--accent)]" />Since 2018</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-3xl blur-2xl" />
+              <div className="relative card-base rounded-2xl overflow-hidden gradient-border">
+                <img src="/images/profile.jpg" alt="Bright Aggrey" className="w-full h-auto object-cover" />
               </div>
-              <p className="text-[var(--text-secondary)] leading-relaxed">
-                I&apos;m an ICT Professional, Frontend Developer, Systems Engineer, and the founder of Activation Technology. Based in Accra, Ghana, I combine technical expertise with a genuine passion for teaching and empowering others through technology.
-              </p>
-            </GlassCard>
+            </div>
           </motion.div>
 
-          <div className="space-y-4">
-            {[
-              { icon: Heart, color: "text-[var(--accent)]", title: "Passion for Technology & Education", text: "My greatest joy comes from seeing someone grasp a new technology concept. Whether it's teaching a student their first line of code or helping a business digitize their operations." },
-              { icon: Rocket, color: "text-[var(--cyan)]", title: "The Activation Technology Story", text: "Founded in 2021, Activation Technology was born from the realization that many organizations in Ghana need comprehensive, affordable ICT solutions." },
-              { icon: Users, color: "text-[var(--accent)]", title: "Industry Meets Teaching", text: "My teaching is enriched with real-world industry experience. Students learn practical skills that employers and clients actually need." },
-            ].map((card, i) => (
-              <motion.div key={card.title} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                <GlassCard className="p-6" hover={false}>
-                  <card.icon className={`h-6 w-6 ${card.color} mb-3`} />
-                  <h4 className="font-semibold font-[family-name:var(--font-heading)] text-[var(--text-primary)] mb-2">{card.title}</h4>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{card.text}</p>
-                </GlassCard>
+          <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
+            <h3 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-[var(--text-primary)] mb-6">
+              {siteConfig.about.title}
+            </h3>
+            <p className="text-[var(--text-secondary)] leading-relaxed mb-6">{siteConfig.about.bio}</p>
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {siteConfig.about.highlights.map((h, i) => (
+                <div key={i} className="card-base rounded-xl p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">{iconMap[h.icon] || <Code size={20} />}</div>
+                  <div>
+                    <p className="text-sm font-bold text-[var(--text-primary)]">{h.label}</p>
+                    <p className="text-xs text-[var(--text-muted)]">{h.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <SectionTitle label="Journey" title="My Milestones" />
+
+        <div className="relative">
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500 hidden md:block" />
+          <div className="space-y-12">
+            {siteConfig.milestones.map((m, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className={`flex flex-col md:flex-row items-center gap-6 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+                  <GlassCard className="inline-block text-left">
+                    <span className="text-xs font-semibold text-[var(--accent)] mb-1 block">{m.year}</span>
+                    <h4 className="text-lg font-bold font-[family-name:var(--font-heading)] text-[var(--text-primary)] mb-2">{m.title}</h4>
+                    <p className="text-sm text-[var(--text-secondary)]">{m.description}</p>
+                  </GlassCard>
+                </div>
+                <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg shadow-blue-500/30 z-10 shrink-0" />
+                <div className="flex-1" />
               </motion.div>
             ))}
           </div>
         </div>
-
-        <SectionTitle label="Journey" title="Key Milestones" description="Every step of my career has been building toward something bigger." />
-
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--accent)]/30 via-[var(--accent)]/10 to-transparent" />
-          {milestones.map((milestone, index) => (
-            <motion.div key={milestone.year} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }} className="relative mb-10 pl-16">
-              <div className="absolute left-3 top-1 h-7 w-7 rounded-full bg-[var(--glow)] border-2 border-[var(--accent)] flex items-center justify-center z-10">
-                <div className="h-2 w-2 rounded-full bg-[var(--accent)]" />
-              </div>
-              <GlassCard className="p-5" hover={false}>
-                <span className="text-xs font-bold text-[var(--accent)] tracking-wider">{milestone.year}</span>
-                <h4 className="text-lg font-semibold font-[family-name:var(--font-heading)] text-[var(--text-primary)] mt-1 mb-2">{milestone.title}</h4>
-                <p className="text-sm text-[var(--text-secondary)]">{milestone.description}</p>
-              </GlassCard>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="text-center mt-16">
-          <AnimatedButton href="/contact" size="lg">Let&apos;s Work Together</AnimatedButton>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

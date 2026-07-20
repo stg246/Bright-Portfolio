@@ -1,83 +1,39 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 interface AnimatedButtonProps {
-  children: React.ReactNode;
   href?: string;
+  children: React.ReactNode;
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
-  onClick?: () => void;
-  disabled?: boolean;
-  type?: "button" | "submit";
   className?: string;
+  onClick?: () => void;
 }
 
-export default function AnimatedButton({
-  children,
-  href,
-  variant = "primary",
-  size = "md",
-  onClick,
-  disabled,
-  type = "button",
-  className = "",
-}: AnimatedButtonProps) {
-  const base =
-    "relative inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 cursor-pointer overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed group";
+export default function AnimatedButton({ href, children, variant = "primary", size = "md", className = "", onClick }: AnimatedButtonProps) {
+  const sizeClasses = { sm: "px-4 py-2 text-xs", md: "px-6 py-3 text-sm", lg: "px-8 py-4 text-sm" };
 
-  const variants = {
-    primary:
-      "bg-[var(--accent)] text-white hover:bg-[var(--accent-light)]",
-    secondary:
-      "bg-[var(--bg-card)] text-[var(--text-primary)] border border-[var(--border-color)] hover:border-[var(--border-hover)]",
-    ghost: "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--glow)]",
+  const base = "inline-flex items-center gap-2 font-semibold rounded-xl transition-all duration-300 group cursor-pointer " + sizeClasses[size];
+
+  const variants: Record<string, string> = {
+    primary: base + " bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 " + className,
+    secondary: base + " chip text-[var(--text-primary)] hover:text-[var(--accent)] " + className,
+    ghost: base + " text-[var(--accent)] hover:bg-[var(--glow)] " + className,
   };
-
-  const sizes = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-6 py-3 text-sm",
-    lg: "px-8 py-4 text-base",
-  };
-
-  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
 
   const content = (
     <>
-      <span className="relative z-10 flex items-center gap-2">
-        {children}
-        {variant === "primary" && (
-          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        )}
-      </span>
-      {variant === "primary" && (
-        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
-      )}
+      {children}
+      <ArrowRight size={size === "sm" ? 14 : 16} className="group-hover:translate-x-1 transition-transform" />
     </>
   );
 
   if (href) {
-    return (
-      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-        <Link href={href} className={classes}>
-          {content}
-        </Link>
-      </motion.div>
-    );
+    return <Link href={href} className={variants[variant]}>{content}</Link>;
   }
 
-  return (
-    <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={classes}
-      onClick={onClick}
-      disabled={disabled}
-      type={type}
-    >
-      {content}
-    </motion.button>
-  );
+  return <button onClick={onClick} className={variants[variant]}>{content}</button>;
 }
