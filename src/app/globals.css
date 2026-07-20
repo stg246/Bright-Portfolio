@@ -7,50 +7,44 @@
 }
 
 :root {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
+  --bg-primary: #faf9f6;
+  --bg-secondary: #f3f1ec;
   --bg-card: #ffffff;
   --bg-glass: rgba(255, 255, 255, 0.8);
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
   --border-color: rgba(0, 0, 0, 0.06);
-  --border-hover: #3b82f6;
-  --accent: #2563eb;
-  --accent-light: #60a5fa;
+  --border-hover: #d4a843;
+  --accent: #d4a843;
+  --accent-light: #e8c468;
   --cyan: #0891b2;
   --emerald: #059669;
-  --glow: rgba(37, 99, 235, 0.06);
+  --glow: rgba(212, 168, 67, 0.08);
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.03);
-  --card-shadow-hover: 0 4px 12px rgba(37, 99, 235, 0.08), 0 12px 40px rgba(37, 99, 235, 0.06);
-  --gradient-start: #eff6ff;
-  --gradient-end: #f0fdf4;
+  --card-shadow-hover: 0 4px 12px rgba(212, 168, 67, 0.1), 0 12px 40px rgba(212, 168, 67, 0.06);
 }
 
 .dark {
-  --bg-primary: #030712;
-  --bg-secondary: #0c1527;
-  --bg-card: rgba(15, 23, 42, 0.6);
-  --bg-glass: rgba(15, 23, 42, 0.5);
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --border-color: rgba(148, 163, 184, 0.08);
-  --border-hover: #3b82f6;
-  --accent: #3b82f6;
-  --accent-light: #60a5fa;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-card: rgba(20, 20, 20, 0.7);
+  --bg-glass: rgba(20, 20, 20, 0.6);
+  --text-primary: #f0ece4;
+  --text-secondary: #b0a898;
+  --text-muted: #706858;
+  --border-color: rgba(212, 168, 67, 0.08);
+  --border-hover: #d4a843;
+  --accent: #d4a843;
+  --accent-light: #e8c468;
   --cyan: #22d3ee;
   --emerald: #34d399;
-  --glow: rgba(59, 130, 246, 0.12);
-  --card-shadow: 0 0 0 1px rgba(148, 163, 184, 0.06), 0 4px 24px rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: 0 0 0 1px rgba(59, 130, 246, 0.15), 0 8px 40px rgba(59, 130, 246, 0.12);
-  --gradient-start: #0c1527;
-  --gradient-end: #030712;
+  --glow: rgba(212, 168, 67, 0.15);
+  --card-shadow: 0 0 0 1px rgba(212, 168, 67, 0.06), 0 4px 24px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 0 0 1px rgba(212, 168, 67, 0.2), 0 8px 40px rgba(212, 168, 67, 0.12);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg-primary);
@@ -60,10 +54,7 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-::selection {
-  background-color: var(--accent);
-  color: white;
-}
+::selection { background-color: var(--accent); color: #1a1a1a; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
@@ -99,14 +90,14 @@ body {
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+    background: linear-gradient(135deg, #d4a843, #f5c842, #d4a843);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-text-alt {
-    background: linear-gradient(135deg, #06b6d4, #10b981);
+    background: linear-gradient(135deg, #d4a843, #e8c468);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -123,7 +114,7 @@ body {
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.3));
+    background: linear-gradient(135deg, rgba(212, 168, 67, 0.4), rgba(245, 200, 66, 0.2), rgba(212, 168, 67, 0.4));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -138,26 +129,14 @@ body {
 
   .chip-accent {
     background: var(--glow);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(212, 168, 67, 0.2);
     color: var(--accent);
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-float-slow {
-    animation: float 10s ease-in-out infinite;
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-float-slow { animation: float 10s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+  .animate-gradient { background-size: 200% 200%; animation: gradient-shift 8s ease infinite; }
 }
 
 @keyframes float {
@@ -167,7 +146,7 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px var(--glow); }
-  50% { box-shadow: 0 0 40px var(--glow), 0 0 80px rgba(59, 130, 246, 0.05); }
+  50% { box-shadow: 0 0 40px var(--glow), 0 0 80px rgba(212, 168, 67, 0.08); }
 }
 
 @keyframes gradient-shift {

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/components/layout/ThemeProvider";
-import { Menu, X, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 
 export default function Navbar() {
@@ -32,12 +31,12 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-strong shadow-lg shadow-black/5 dark:shadow-black/20 py-3" : "py-5 bg-transparent"
+        scrolled ? "glass-strong shadow-lg shadow-black/5 dark:shadow-black/30 py-3" : "py-5 bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between" role="navigation" aria-label="Main navigation">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm font-[family-name:var(--font-heading)] shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-shadow">
+          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-[#d4a843] to-[#b8941f] flex items-center justify-center text-[#1a1a1a] font-bold text-sm font-[family-name:var(--font-heading)] shadow-lg shadow-[#d4a843]/25 group-hover:shadow-[#d4a843]/40 transition-shadow">
             BA
             <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
@@ -71,12 +70,12 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleTheme}
-            className="w-9 h-9 rounded-lg chip flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-[var(--border-hover)]/40 transition-all"
+            className="w-9 h-9 rounded-lg chip flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-[var(--border-hover)]/40 transition-all cursor-pointer"
             aria-label="Toggle theme"
           >
             <AnimatePresence mode="wait">
               <motion.div key={theme} initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                {theme === "dark" ? <i className="fa-solid fa-sun text-sm" /> : <i className="fa-solid fa-moon text-sm" />}
               </motion.div>
             </AnimatePresence>
           </button>
@@ -88,7 +87,7 @@ export default function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            {mobileOpen ? <i className="fa-solid fa-xmark text-sm" /> : <i className="fa-solid fa-bars text-sm" />}
           </button>
         </div>
       </nav>

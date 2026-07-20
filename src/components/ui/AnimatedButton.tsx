@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 interface AnimatedButtonProps {
   href?: string;
@@ -19,7 +18,7 @@ export default function AnimatedButton({ href, children, variant = "primary", si
   const base = "inline-flex items-center gap-2 font-semibold rounded-xl transition-all duration-300 group cursor-pointer " + sizeClasses[size];
 
   const variants: Record<string, string> = {
-    primary: base + " bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 " + className,
+    primary: base + " bg-gradient-to-r from-[#d4a843] to-[#b8941f] text-[#1a1a1a] hover:from-[#e8c468] hover:to-[#d4a843] shadow-lg shadow-[#d4a843]/25 hover:shadow-[#d4a843]/40 hover:-translate-y-0.5 " + className,
     secondary: base + " chip text-[var(--text-primary)] hover:text-[var(--accent)] " + className,
     ghost: base + " text-[var(--accent)] hover:bg-[var(--glow)] " + className,
   };
@@ -27,7 +26,7 @@ export default function AnimatedButton({ href, children, variant = "primary", si
   const content = (
     <>
       {children}
-      <ArrowRight size={size === "sm" ? 14 : 16} className="group-hover:translate-x-1 transition-transform" />
+      <i className="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform" />
     </>
   );
 

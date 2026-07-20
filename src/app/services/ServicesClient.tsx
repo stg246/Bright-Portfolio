@@ -15,9 +15,9 @@ export default function ServicesClient() {
             const Icon = service.icon;
             return (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="group card-base rounded-2xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#d4a843]/10 to-transparent rounded-bl-full" />
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-shadow">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#d4a843] to-[#b8941f] flex items-center justify-center text-[#1a1a1a] mb-6 shadow-lg shadow-[#d4a843]/25 group-hover:shadow-[#d4a843]/40 transition-all duration-300 group-hover:scale-110">
                     <Icon size={28} />
                   </div>
                   <h3 className="text-xl font-bold font-[family-name:var(--font-heading)] text-[var(--text-primary)] mb-3">{service.title}</h3>
