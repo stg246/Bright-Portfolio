@@ -100,7 +100,7 @@ export default function HeroSection() {
           {/* Right: Image */}
           <motion.div initial={{ opacity: 0, x: 60, scale: 0.95 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }} className="relative flex-shrink-0 w-full max-w-[420px] lg:max-w-[480px] order-first lg:order-last">
             <div className="absolute -inset-6 bg-[#d4a843]/8 rounded-full blur-[60px]" />
-            <img src="/Image1.png" alt="Bright Aggrey - ICT Professional" className="relative w-full h-auto drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500" />
+            <img src="/Image1.png" alt="Bright Aggrey - ICT Professional" className="relative w-full h-auto object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500" width={408} height={612} />
           </motion.div>
 
         </div>
