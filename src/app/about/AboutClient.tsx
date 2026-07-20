@@ -20,12 +20,13 @@ export default function AboutClient() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#d4a843]/20 to-[#b8941f]/10 rounded-3xl blur-2xl" />
-              <div className="relative card-base rounded-2xl overflow-hidden gradient-border">
-                <img src="/images/profile.jpg" alt="Bright Aggrey" className="w-full h-auto object-cover" />
+            <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.3 }} className="relative mx-[-5%]">
+              <div className="absolute -inset-6 bg-gradient-to-br from-[#d4a843]/20 to-[#b8941f]/10 rounded-3xl blur-2xl animate-pulse" />
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-[#d4a843]/15 via-transparent to-[#e8c468]/10 blur-sm" />
+              <div className="relative card-base rounded-2xl overflow-hidden gradient-border shadow-[0_20px_60px_rgba(212,168,67,0.2)]">
+                <img src="/images/profile.jpg" alt="Bright Aggrey" className="w-[110%] h-auto object-cover" />
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>

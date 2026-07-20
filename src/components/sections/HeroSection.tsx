@@ -98,9 +98,12 @@ export default function HeroSection() {
           </div>
 
           {/* Right: Image */}
-          <motion.div initial={{ opacity: 0, x: 60, scale: 0.95 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }} className="relative flex-shrink-0 w-full max-w-[420px] lg:max-w-[480px] order-first lg:order-last">
-            <div className="absolute -inset-6 bg-[#d4a843]/8 rounded-full blur-[60px]" />
-            <img src="/Image1.png" alt="Bright Aggrey - ICT Professional" className="relative w-full h-auto object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500" width={408} height={612} />
+          <motion.div initial={{ opacity: 0, x: 60, scale: 0.95 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }} className="relative flex-shrink-0 w-full max-w-[462px] lg:max-w-[528px] order-first lg:order-last">
+            <motion.div animate={{ y: [0, -12, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }} className="relative">
+              <div className="absolute -inset-8 bg-[#d4a843]/10 rounded-full blur-[70px] animate-pulse" />
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-[#d4a843]/15 via-transparent to-[#e8c468]/10 blur-sm" />
+              <img src="/Image1.png" alt="Bright Aggrey - ICT Professional" className="relative w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(212,168,67,0.25)]" width={449} height={673} />
+            </motion.div>
           </motion.div>
 
         </div>
