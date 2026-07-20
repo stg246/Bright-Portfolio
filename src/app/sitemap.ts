@@ -8,7 +8,6 @@ export default function sitemap() {
     "/skills",
     "/experience",
     "/projects",
-    "/certifications",
     "/contact",
   ];
 
