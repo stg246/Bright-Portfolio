@@ -59,39 +59,50 @@ export default function HeroSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#e8c468]/4 rounded-full blur-[180px]" />
       <HeroParticles />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 py-32 w-full">
-        <div className="max-w-[780px] mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full mb-8 border border-[#d4a843]/20 bg-[#d4a843]/5 backdrop-blur-md">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4a843] opacity-60" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#d4a843]" />
-            </span>
-            <span className="text-sm font-medium text-[#e8c468] tracking-wide">Welcome to Activation Technology</span>
+      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32 w-full">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+
+          {/* Left: Text Content */}
+          <div className="max-w-[620px] text-center lg:text-left">
+            <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full mb-8 border border-[#d4a843]/20 bg-[#d4a843]/5 backdrop-blur-md">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4a843] opacity-60" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#d4a843]" />
+              </span>
+              <span className="text-sm font-medium text-[#e8c468] tracking-wide">Welcome to Activation Technology</span>
+            </motion.div>
+
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-[family-name:var(--font-heading)] tracking-tight leading-[1.1] mb-7">
+              <span className="text-white">Empowering Businesses Through</span>
+              <br />
+              <span className="bg-gradient-to-r from-[#e8c468] via-[#f5d87a] to-[#e8c468] bg-clip-text text-transparent">Smart Digital Solutions</span>
+            </motion.h1>
+
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="text-base sm:text-lg text-white/60 mb-10 leading-relaxed">
+              Activation Technology delivers end-to-end digital solutions including web development,
+              software engineering, ICT consultancy, networking infrastructure, graphic design,
+              printing services, and comprehensive digital business solutions tailored for modern enterprises.
+            </motion.p>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }} className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4">
+              <a href="/contact" className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#d4a843] to-[#b8941f] text-[#1a1a1a] font-semibold text-sm shadow-lg shadow-[#d4a843]/30 hover:shadow-[#d4a843]/50 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-pointer">
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+                <span className="relative z-10">Get Started</span>
+                <i className="fa-solid fa-arrow-right relative z-10 text-xs group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="/services" className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl border border-white/20 text-white font-semibold text-sm bg-white/5 backdrop-blur-sm hover:bg-white hover:text-[#1a1a1a] hover:border-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
+                Explore Services
+                <i className="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform" />
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right: Image */}
+          <motion.div initial={{ opacity: 0, x: 60, scale: 0.95 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }} className="relative flex-shrink-0 w-full max-w-[420px] lg:max-w-[480px] order-first lg:order-last">
+            <div className="absolute -inset-6 bg-[#d4a843]/8 rounded-full blur-[60px]" />
+            <img src="/Image1.png" alt="Bright Aggrey - ICT Professional" className="relative w-full h-auto drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500" />
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-[family-name:var(--font-heading)] tracking-tight leading-[1.1] mb-7">
-            <span className="text-white">Empowering Businesses Through</span>
-            <br />
-            <span className="bg-gradient-to-r from-[#e8c468] via-[#f5d87a] to-[#e8c468] bg-clip-text text-transparent">Smart Digital Solutions</span>
-          </motion.h1>
-
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="text-base sm:text-lg text-white/60 max-w-[680px] mx-auto mb-10 leading-relaxed">
-            Activation Technology delivers end-to-end digital solutions including web development,
-            software engineering, ICT consultancy, networking infrastructure, graphic design,
-            printing services, and comprehensive digital business solutions tailored for modern enterprises.
-          </motion.p>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/contact" className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#d4a843] to-[#b8941f] text-[#1a1a1a] font-semibold text-sm shadow-lg shadow-[#d4a843]/30 hover:shadow-[#d4a843]/50 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-pointer">
-              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
-              <span className="relative z-10">Get Started</span>
-              <i className="fa-solid fa-arrow-right relative z-10 text-xs group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="/services" className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl border border-white/20 text-white font-semibold text-sm bg-white/5 backdrop-blur-sm hover:bg-white hover:text-[#1a1a1a] hover:border-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
-              Explore Services
-              <i className="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform" />
-            </a>
-          </motion.div>
         </div>
       </div>
 
